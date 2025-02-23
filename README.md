@@ -80,3 +80,51 @@ EXP 1. Implement linear and binary search algorithms, then analyze and evaluate 
                         printf("The key element %d is not found in the array\n", key);
             }
       }
+
+
+
+EXP 2. Implement Bubble, Selection, and Insertion sort algorithms, and analyze their time complexity
+
+      Selection Sort
+
+      #include<stdio.h>
+      void main()
+      {
+            int a[20], i, n, j, large, index;
+            printf("Enter value of n : ");
+            scanf("%d", &n);
+            //Code to read an array elements
+            for(i=0; i<n; i++){
+                  printf("Enter elements of a[%d] : ", i);
+                  scanf("%d", &a[i]);
+            }
+            printf("Before sorting the elements in the array are\n");
+            //Code to print the given array elements before sorting
+            for(i=0; i<n; i++){
+                  printf("Value of a[%d] = %d\n", i, a[i]);
+            }
+            //Code for selection sort largest element method
+            for(i=n-1; i>0; i--){
+                  large = a[0];
+                  index = 0;
+
+            for(j=1; j<=i; j++){
+                  if(a[j]>large){
+                        large = a[j];
+                        index = j;
+                  }
+            }
+            int temp = a[i];
+            a[i] = a[index];
+            a[index] = temp;
+            }
+            printf("After sorting the elements in the array are\n");
+            //Code to print the given array element after sorting
+            for(i=0; i<n; i++){
+                  printf("Value of a[%d] = %d\n", i, a[i]);
+            }
+      }
+      
+            
+            
+      
