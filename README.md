@@ -196,7 +196,10 @@ EXP 2. Implement Bubble, Selection, and Insertion sort algorithms, and analyze t
                   printf("Value of a[%d] = %d\n",i, a[i]);
             }
       }
-      
+EXP 3. Implement Quick and Merge sort algorithms, and analyze their time complexity.
+
+      MERGE SORT
+
       
             
             
