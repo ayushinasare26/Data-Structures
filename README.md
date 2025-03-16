@@ -129,7 +129,7 @@ EXP 2. Implement Bubble, Selection, and Insertion sort algorithms, and analyze t
       BUBBLE SORT
 
       #include<stdio.h>
-      #include<strin.h>
+      #include<string.h>
       void main()
       {
             char a[20][20];
@@ -149,7 +149,7 @@ EXP 2. Implement Bubble, Selection, and Insertion sort algorithms, and analyze t
                   }
             //Code to sort the strings using bubble sort technique
             for(i=0; i<n-1; i++){
-                  for(j=0; j<n--i-1; j++){
+                  for(j=0; j<n-i-1; j++){
                         if(strcmp(a[j],a[j+1])>0){
                               strcpy(temp,a[j]);
                               strcpy(a[j],a[j+1]);
@@ -163,6 +163,40 @@ EXP 2. Implement Bubble, Selection, and Insertion sort algorithms, and analyze t
                   printf("String at a[%d] = %s\n", i, a[i]);
             }
       }
+
+      INSERTION SORT
+
+      #include<stdio.h>
+      void main()
+      {
+            int a[20], i, n, j, temp, pos;
+            printf("Enter value of n : ");
+            scanf("%d", &n);
+            //loop to read array elements
+            for(i=0;i<n;i++){
+                  printf("Enter element for a[%d] : ",i);
+                  scanf("%d", &a[i]);
+            }
+            printf("Before sorting the elements in the array are\n");
+            for(i=0;i<n;i++){
+                  printf("Value of a[%d] = %d\n", i, a[i]);
+            }
+            // code to sort elements using insertion sort
+            for(i=1;i<n;i++){
+                  temp=a[i];
+                  j=i-1;
+                  while(j>=0 && a[j]>temp){
+                        a[j+1]=a[j];
+                        j--;
+                  }
+                  a[j+1]=temp;
+            }
+            printf("After sorting the elements in the array are\n");
+            for(i=0;i<n;i++){
+                  printf("Value of a[%d] = %d\n",i, a[i]);
+            }
+      }
+      
       
             
             
