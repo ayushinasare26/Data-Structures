@@ -200,6 +200,133 @@ EXP 3. Implement Quick and Merge sort algorithms, and analyze their time complex
 
       MERGE SORT
 
+      #include<stdio.h>
+      
+      void main(){
+            int arr[15], i, n;
+            printf("Enter array size : :);
+            scanf("%d", &n);
+            printf("Enter %d elements : ",n);
+            for(i = 0; i < n; i++){
+                  scanf("%d", &arr[i]);
+            }
+            printf("Before sorting the elements are: ");
+            display(arr, n);
+            splitAndMerge(arr, 0, n-1);
+            printf("After sorting the elements are: ");
+            display(arr, n);
+      }
+
+      void display(int arr[15], int n){
+            int i;
+            for(i = 0; i < n; i++)
+                  printf("%d", arr[i]);
+            printf("\n");
+      }
+      void merge(int arr[15], int low, int mid, int high){
+            int i, j, k;
+            int n1 = mid - low + 1;
+            int n2 = high - mid;
+            int lowarr[n1], higharr[n2];
+            for(i = 0; i < n1; i++){
+                  lowarr[i] = arr[low + i];
+            }
+            for(j = 0; j < n2; j++){
+                  higharr[j] = arr[mid + 1 + j];
+            }
+            i = 0;
+            j = 0;
+            k = low;
+            while(i < n1 && j < n2){
+                  if(lowarr[i] <= higharr[j]){
+                        arr[k] = lowarr[i];
+                        i++;
+                  }
+                  else
+                  {
+                        arr[k] = higharr[j];
+                        j++;
+                  }
+                  k++;
+            }
+            while(j < n2){
+                  arr[k] = lowarr[i];
+                  i++;
+                  k++;
+            }
+            while(j < n2){
+                  arr[k] = higharr[j];
+                  j++;
+                  k++;
+                  }
+            }
+            void splitAndMerge(int arr[15], int low, int high){
+                  if(low < high){
+                        int mid = low+(high-low)/2;
+                        splitAndMerge(arr,low,mid);
+                        splitAndMerge(arr,mid+1,high);
+                        merge(arr,low,mid,high);
+                  }
+            }
+
+            QUICK SORT
+
+            #include<stdio.h>
+
+            void main(){
+                  int arr[15], i, n;
+                  printf("Enter array size: ");
+                  scnaf("%d", &n);
+                  print("Enter %d elements: ",n);
+                  for(i = 0; i < n; i++){
+                        scanf("%d",&arr[i]);
+                  }
+                  printf("Before sorting the elements are: ");
+                  display(arr, n);
+                  quickSort(arr, 0, n-1);
+                  printf("After sorting the elements are: ");
+                  display(arr, n);
+            }
+
+            int partition(int arr[15], int lb, int ub);
+            void display(int arr[15], int n){
+                  int i;
+                  for(i = 0;i < n; i++)
+                        printf("%d", arr[i]);
+                  printf("\n");
+                  }
+            void quickSort(int arr[15], int low, int high){
+                  int j;
+                  if(low < high){
+                        j = partition(arr, low, high);
+                        quickSort(arr, low, j-1);
+                        quickSort(arr, j+1, high);
+                  }
+            }
+            int partition(int arr[15], int low, int high){
+                  int pivot, start = low, end = high, temp;
+                  pivot = arr[low];
+                  while(start<end){
+                        while(arr[start]<=pivot){
+                              start++;
+                        }
+                        while(arr[end]>pivot){
+                              end--;
+                        }
+                        if(start<end){
+                              temp = arr[start];
+                              arr[start] = arr[end];
+                              arr[end] = temp;
+                        }
+                  }
+                  arr[low] = arr[end];
+                  arr[end] = pivot;
+                  return end;
+            }
+                  
+                  
+            
+                        
       
             
             
